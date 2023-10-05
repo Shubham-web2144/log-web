@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome to Logistices web</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="mainContainer">
+     	
+     	<nav th:insert="~{fragments/navBar:: nav}"></nav>
+
+      <div class="banner">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVqKgLEhXHM5UJ4CdGmylNQtltaAlEr_-GeA&usqp=CAU" alt="">
+        <h3>Contact</h3>
+      </div>
+
+      <div class="container my-4">
+        <div class="row row-cols-sm-2 row-cols-md-3" th:if="${contacts.size() > 0}">
+            <div class="col loc" th:each="contact: ${contacts}" th:if="${contact.isActive}">
+                <h4 th:text="${contact.officeName}">LOGITRUST XPRESS PRIVATE LIMITED</h4>
+                <p th:text="${contact.streetName + ', ' + contact.state + ', ' + contact.country + ' - ' + contact.zipcode}">A-197 , Road No 4 , Street No 10
+                    Mahipalpur Extension New Delhi - 110037</p>
+                <h3 th:text="${contact.mobile}">+9107328738</h3>
+                <a th:href="@{'mailto:' + ${contact.email}}" th:text="${contact.email}">info@email.in</a>
+            </div>
+            <!--
+            <div class="col loc">
+                <h4>LOGITRUST XPRESS PRIVATE LIMITED</h4>
+                <p>A-197 , Road No 4 , Street No 10
+                    Mahipalpur Extension New Delhi - 110037</p>
+                <h3>+9107328738</h3>
+                <a href="mailto:">info@email.in</a>
+            </div>
+            <div class="col loc">
+                <h4>LOGITRUST XPRESS PRIVATE LIMITED</h4>
+                <p>A-197 , Road No 4 , Street No 10
+                    Mahipalpur Extension New Delhi - 110037</p>
+                <h3>+9107328738</h3>
+                <a href="mailto:">info@email.in</a>
+            </div>
+            <div class="col loc">
+                <h4>LOGITRUST XPRESS PRIVATE LIMITED</h4>
+                <p>A-197 , Road No 4 , Street No 10
+                    Mahipalpur Extension New Delhi - 110037</p>
+                <h3>+9107328738</h3>
+                <a href="mailto:">info@email.in</a>
+            </div>
+            <div class="col loc">
+                <h4>LOGITRUST XPRESS PRIVATE LIMITED</h4>
+                <p>A-197 , Road No 4 , Street No 10
+                    Mahipalpur Extension New Delhi - 110037</p>
+                <h3>+9107328738</h3>
+                <a href="mailto:">info@email.in</a>
+            </div> -->
+        </div>
+      </div>
+      
+      <div th:insert="~{fragments/infobox:: div}"></div>
+
+	<footer th:insert="~{fragments/footer:: footer}"></footer>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

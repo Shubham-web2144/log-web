@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Welcome to Logistices web</title>
+
+	<link rel="stylesheet" href="css/style.css" />
+	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+	<div class="mainContainer">
+		<nav th:insert="~{fragments/navBar:: nav}"></nav>
+
+		<div class="banner">
+			<img th:src="@{images/custome.jpg}" alt="" />
+			<h3>Custome Clearance</h3>
+		</div>
+
+		<div class="content" th:if="${content != null}" th:object="${content}">
+			<div class="content-text">
+				<h3 th:text="${content.title}">Custome Clearance</h3>
+				<input type="text" th:value="*{descriptionTxt}" id="content" hidden />
+				<div id="editor"></div>
+				<!--<p>
+					Logitrust operates from a fully equipped freight facility with
+					online filing with custom EDI, which has proved to be the perfect
+					location to offer a first class and efficient import and export
+					service by airfreight, sea freight, and road haulage. Our services
+					offered include: Liaison with all regulatory bodies, council to deal
+					with all types of cargo. Coordinating between warehouse statutory
+					authority and the shipping line and airlines. Liaison with all
+					regulatory bodies, council to deal with all types of cargo.
+					Coordinating between warehouse statutory authority and the shipping
+					line and airlines. Speedy transaction of all custom formalities and
+					obtaining all required certificates. Handling of stuffing &
+					de-stuffing at Ports, ICD's and customers warehouse. Logitrust
+					customs handling services cover almost all the aspects of the
+					international trade and commerce irrespective of the trading status
+					i.e. we undertake clearance of E.O.U./ EPZ/ STP/ EHTP, DUTY FREE
+					SHIPPING BILL, DUTIABLE GOODS, PROJECT IMPORT, DUTY DRAWBACK/ DEPB/
+					DEEC/ DFRC/ EPCG, etc. For the customers our expertise on the trade
+					policies is always on hand; enabling them to make the best of them.
+					And to facilitate their documentation we also undertake complete
+					documentation, filing, clearing the consignment. Our highly
+					experienced teams and agents enable us to customs clear your
+					shipments quickly and efficiently through the complicated customs
+					procedure. We also offer a full freight service. We at Logitrust
+					undertake: Export Clearance For EOU/ EPZ/ STP/ EHTP Export Clearance
+					Under DFSB (Duty Free Shipping Bill) Export Clearance Under DEEC
+					Shipping Bill (Duty Exemption Entitlement Certificate) Export
+					Clearance Under DEPB Shipping Bill (Duty Exemption Pass Book) Export
+					Clearance Under Claim For Duty Drawback Export Clearance Under DFRC
+					(Duty Free Replenishment Certificate) Export Clearance Under EPCG
+					(Export Promotion Capital Goods) Export Clearance Of Dutiable Goods
+					Clearance Under Project Import Clearance Under EPCG (Export
+					Promotion Capital Goods) Scheme Clearance Under DEEC (Duty Exemption
+					Entitlement Certificate) Scheme Clearance Under DEPB Licence (Duty
+					Exemption Pass Book) Scheme Clearance Under DFRC Licence (Duty Free
+					Replenishment Certificate) Scheme Clearance Of Goods For Warehousing
+					De-bonding Of Goods From Customs Bonded Warehouse (Under Project)
+					De-bonding Of Goods From Customs Bonded Warehouse Under EPCG (Export
+					Promotion Capital Goods) Scheme De-bonding Of Goods From Customs
+					Bonded Warehouse Under DEEC (Duty Exemption Entitlement Certificate)
+					Scheme De-bonding Of Goods From Customs Bonded Warehouse Under DEPB
+					(Duty Exemption Pass Book) Scheme Clearance Under Payment Of Duty
+					Clearance Under Fast Track / Green Channel Clearance Of Second Hand
+					Machinery (Under Payment Of Duty) Clearance Of Second Hand Machinery
+					(Under Project Import) Clearance Of Second Hand Machinery (Under
+					EPCG) Clearance Of Second Hand Machinery From Custom Bonded
+					Warehouse Clearance Of EOU / EPZ / EHTP / STP
+				</p> -->
+			</div>
+			<div class="content-img">
+				<img th:src="@{'/images/' + ${content.img}}" alt="" />
+			</div>
+		</div>
+
+		<div th:insert="~{fragments/infobox:: div}"></div>
+		<footer th:insert="~{fragments/footer:: footer}"></footer>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+	<script>
+		var content = document.getElementById("content");
+		var q = new Quill("#editor", {
+			theme: 'bubble'
+		});
+		q.setContents(JSON.parse(content.value));
+		q.disable();
+	</script>
+</body>
+
+</html>

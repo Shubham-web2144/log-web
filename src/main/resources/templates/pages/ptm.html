@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Welcome to Logistices web</title>
+
+	<link rel="stylesheet" href="css/style.css" />
+	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+	<div class="mainContainer">
+		<nav th:insert="~{fragments/navBar:: nav}"></nav>
+
+		<div class="banner">
+			<img th:src="@{images/ptm.jpg}" alt="" />
+			<h3>Project Transport Solution</h3>
+		</div>
+
+		<div class="content" th:if="${content != null}" th:object="${content}">
+			<div class="content-text">
+				<h3 th:text="${content.title}">Project Transport Solution</h3>
+				<input type="text" th:value="*{descriptionTxt}" id="content" hidden />
+				<div id="editor"></div>
+				<!-- <p>
+					Our comprehensive services of land transport solutions provide you
+					with the resources, expertise and assets to effectively tackle your
+					most complex transportation and logistics challenges. Project
+					Transport Management offerings includes transport through Road, Rail
+					& Waterways for all type of project cargo including General Cargo,
+					Heavy Lifts, Over dimensional etc. We are equipped with the required
+					fleet to handle your various transport needs. Our offerings in
+					Project Transport Management activities may incl Using multiple
+					modes of transport Establishing Feasibility to Improve scheduling
+					and routing to reduce freight & time Organize large fleets for
+					General Cargo across the country for faster port evacuation
+					Construction of Roads, Temporary Bridges, Bypasses, Removal of
+					Obstructions etcenroute. Fabrication of structures beams etc to
+					facilitate transportation of large and heavy consignments. or
+					overseas.
+				</p> -->
+			</div>
+			<div class="content-img">
+				<img th:src="@{'/images/' + ${content.img}}" alt="" />
+			</div>
+		</div>
+		<div th:insert="~{fragments/infobox:: div}"></div>
+		<footer th:insert="~{fragments/footer:: footer}"></footer>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+	<script>
+		var content = document.getElementById("content");
+		var q = new Quill("#editor", {
+			theme: 'bubble'
+		});
+		q.setContents(JSON.parse(content.value));
+		q.disable();
+	</script>
+</body>
+
+</html>

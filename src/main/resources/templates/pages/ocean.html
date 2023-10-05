@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Welcome to Logistices web</title>
+
+	<link rel="stylesheet" href="css/style.css" />
+	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+	<div class="mainContainer">
+		<nav th:insert="~{fragments/navBar:: nav}"></nav>
+
+		<div class="banner">
+			<img th:src="@{images/ocean.jpg}" alt="" />
+			<h3>Ocean Freight</h3>
+		</div>
+
+		<div class="content" th:if="${content != null}" th:object="${content}">
+			<div class="content-text">
+				<h3 th:text="${content.title}">Ocean Freight</h3>
+				<input type="text" th:value="*{descriptionTxt}" id="content" hidden />
+				<div id="editor"></div>
+				<!--<p>
+					There’s a reason why 90% of our business is "repeat business".
+					Logitrust is committed to make your shipping experience the best
+					possible. This has set us apart from the competition, as our team
+					specializes in ocean freight covering services like inbound, out
+					bound and sourcing the competitive rates for the freight. Logitrust
+					has round the clock sailings from any point, anytime to anywhere in
+					the world whether it is “Door to Door, Door to Port or Port to
+					Port”, because of our own service contracts directly with the
+					airlines and shipping lines. Thus, we are able to provide the cost
+					and services for 20', 40', 40' high cube, or any other full
+					container load traffic worldwide. Our quote prices are market
+					competitive and pride ourselves on great customer service. The
+					shipping services offered include: LCL Cargo - Less Than Container
+					Load FCL Cargo - Full Container Load Project Cargo like oversized
+					machinery, vehicles, etc. Special Commodity Services like
+					refrigerated containers, dangerous goods, etc. Other specialized
+					services: Shipping Custom Clearance & Forwarding Packing and
+					Transport of Containers Multi Modal Transport Facilities Logitrust
+					believes that communication, proper planning and logistics are
+					crucial aspects of the relocation and shipping industry that are
+					often overseen and neglected by the competition. Thus, has extensive
+					expertise in the proper handling of ocean shipments and is confident
+					that our client ultimate satisfaction will be realized.
+				</p> -->
+			</div>
+			<div class="content-img">
+				<img th:src="@{'/images/' + ${content.img}}" alt="" />
+			</div>
+		</div>
+
+		<div th:insert="~{fragments/infobox:: div}"></div>
+
+		<footer th:insert="~{fragments/footer:: footer}"></footer>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+	<script>
+		var content = document.getElementById("content");
+		var q = new Quill("#editor", {
+			theme: 'bubble'
+		});
+		q.setContents(JSON.parse(content.value));
+		q.disable();
+	</script>
+
+</html>
