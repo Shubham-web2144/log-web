@@ -1,24 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymleaf.org">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Welcome to Logistics web</title>
+<html lang="en" xmlns="https://www.thymleaf.org">
 
-    <link rel="stylesheet" href="css/style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <div class="mainContainer">
-		
+<head>
+	<meta charset="utf-8" />
+	<title>Welcome to Logistics web</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description"
+		content="Logistics is the management of supply and transportation to deliver the goods on time and in good shape. handling of operations is a part of the logistics ">
+	<meta name="keywords" content="logistics and transport management, logistics transportation services, transport logistics company,logistics companies near me">
+	<meta name="author" content="JS Devs">
+	<meta name="robots" content="index, follow">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="images/favicon-short.ico" type="image/x-icon">
+
+
+	<link rel="stylesheet" href="css/style.css" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+	<div class="mainContainer">
+
 		<nav th:insert="~{fragments/navBar:: nav}"></nav>
-		
-      <!-- <nav
+
+		<!-- <nav
         class="navbar navbar-expand-lg navbar-dark"
         style="background-color: #000"
       >
@@ -108,150 +115,112 @@
           </div>
         </div>
       </nav> -->
-      
-      <div class="slide-show" style="height: 450px;">
-        <div
-          id="carouselExampleAutoplaying"
-          class="carousel slide"
-          data-bs-ride="carousel"
-        >
-          <div class="carousel-inner" style="padding: 10px 20px !important;">
-            <div class="carousel-item active">
-              <img
-                th:src="@{images/slide2.jpg}"
-                class="d-block w-100"
-                style="height: 500px;"
-                alt="..."
-              />
-              <div class="carousel-caption d-md-block">
-                <h3>Air Freight</h3>
-                <h6>
-                  Some representative placeholder content for the first slide.
-                </h6>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img
-                th:src="@{images/slide3.jpg}"
-                class="d-block w-100 slideImg"
-                style="height: 500px;"
-                alt="..."
-              />
-              <div class="carousel-caption d-md-block">
-                <h3>Ocean Freight</h3>
-                <h6>
-                  Some representative placeholder content for the first slide.
-                </h6>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img
-                th:src="@{images/slide1.jpg}"
-                class="d-block w-100 slideImg"
-                style="height: 500px;"
-                alt="..."
-              />
-              <div class="carousel-caption d-md-block">
-                <h3>Strongest Distrubution Newtwork</h3>
-                <h6>
-                  Some representative placeholder content for the first slide.
-                </h6>
-              </div>
-            </div>
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
-      <div class="container w3-animate-zoom px-3 py-3 my-5">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card card-01">
-              <img
-                class="card-img-top"
-                src="https://logitrust.in/img/pics/img02.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h4 class="card-title">Ocean Freight</h4>
-                <p class="card-text">
-                  There’s a reason why 90% of our business is "repeat business".
-                  Logitrust is committed to make your shipping experience the
-                  best possible. This has set us apart from the competition, as
-                  our team specializes in ocean freight covering services like
-                  inbound
-                </p>
-                <a th:href="@{/ocean}" class="btn btn-primary text-uppercase">Read more</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 cardBox">
-            <div class="card card-01">
-              <img
-                class="card-img-top"
-                src="https://logitrust.in/img/pics/img03.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h4 class="card-title">Air Freight</h4>
-                <p class="card-text">
-                  Logitrust strives to provide an air cargo cost-effective
-                  alternative for the commercial air shipping community for
-                  domestic as well as international consignments. We maintain a
-                  network of agents worldwide for an efficient pickup and
-                  delivery operation, 365 days a year.
-                </p>
-                <a th:href="@{/air}" class="btn btn-primary text-uppercase">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 cardBox">
-            <div class="card card-01">
-              <img
-                class="card-img-top"
-                src="https://logitrust.in/img/pics/img01.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h4 class="card-title">Customs Clearance</h4>
-                <p class="card-text">
-                  Logitrust operates from a fully equipped freight facility with
-                  online filing with custom EDI, which has proved to be the
-                  perfect location to offer a first class and efficient import
-                  and export service by airfreight, sea freight, and road
-                  haulage
-                </p>
-                <a th:href="@{/custome}" class="btn btn-primary text-uppercase">Explore</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <footer th:insert="~{fragments/footer:: footer}"></footer>
-    </div>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-    <script src="javascript/scrollreveal.js"></script>
-  </body>
+		<div class="slide-show" style="height: 450px;">
+			<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-inner" style="padding: 10px 20px !important;">
+					<div class="carousel-item active">
+						<img th:src="@{images/slide2.jpg}" class="d-block w-100" style="height: 500px;" alt="..." />
+						<div class="carousel-caption d-md-block">
+							<h3>Air Freight</h3>
+							<h6>
+								Some representative placeholder content for the first slide.
+							</h6>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img th:src="@{images/slide3.jpg}" class="d-block w-100 slideImg" style="height: 500px;"
+							alt="..." />
+						<div class="carousel-caption d-md-block">
+							<h3>Ocean Freight</h3>
+							<h6>
+								Some representative placeholder content for the first slide.
+							</h6>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img th:src="@{images/slide1.jpg}" class="d-block w-100 slideImg" style="height: 500px;"
+							alt="..." />
+						<div class="carousel-caption d-md-block">
+							<h3>Strongest Distrubution Newtwork</h3>
+							<h6>
+								Some representative placeholder content for the first slide.
+							</h6>
+						</div>
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+					data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+					data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+		</div>
+		<div class="container w3-animate-zoom px-3 py-3 my-5">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="card card-01">
+						<img class="card-img-top" src="https://logitrust.in/img/pics/img02.jpg" alt="Card image cap" />
+						<div class="card-body">
+							<h4 class="card-title">Ocean Freight</h4>
+							<p class="card-text">
+								There’s a reason why 90% of our business is "repeat business".
+								Logitrust is committed to make your shipping experience the
+								best possible. This has set us apart from the competition, as
+								our team specializes in ocean freight covering services like
+								inbound
+							</p>
+							<a th:href="@{/ocean}" class="btn btn-primary text-uppercase">Read more</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 cardBox">
+					<div class="card card-01">
+						<img class="card-img-top" src="https://logitrust.in/img/pics/img03.jpg" alt="Card image cap" />
+						<div class="card-body">
+							<h4 class="card-title">Air Freight</h4>
+							<p class="card-text">
+								Logitrust strives to provide an air cargo cost-effective
+								alternative for the commercial air shipping community for
+								domestic as well as international consignments. We maintain a
+								network of agents worldwide for an efficient pickup and
+								delivery operation, 365 days a year.
+							</p>
+							<a th:href="@{/air}" class="btn btn-primary text-uppercase">Read More</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 cardBox">
+					<div class="card card-01">
+						<img class="card-img-top" src="https://logitrust.in/img/pics/img01.jpg" alt="Card image cap" />
+						<div class="card-body">
+							<h4 class="card-title">Customs Clearance</h4>
+							<p class="card-text">
+								Logitrust operates from a fully equipped freight facility with
+								online filing with custom EDI, which has proved to be the
+								perfect location to offer a first class and efficient import
+								and export service by airfreight, sea freight, and road
+								haulage
+							</p>
+							<a th:href="@{/custome}" class="btn btn-primary text-uppercase">Explore</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer th:insert="~{fragments/footer:: footer}"></footer>
+	</div>
+	<script src="https://unpkg.com/scrollreveal"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+	<script src="javascript/scrollreveal.js"></script>
+</body>
+
 </html>
