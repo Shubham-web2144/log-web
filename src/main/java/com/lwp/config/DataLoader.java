@@ -18,7 +18,12 @@ public class DataLoader implements CommandLineRunner {
 		User user = new User();
 		user.setUsername("admin");
 		user.setPassword("admin");
-		userRepo.save(user);
+		
+		if(userRepo.findByUsername(user.getUsername()) == null) {
+			userRepo.save(user);
+		}
+		
+		
 	}
 
 }
