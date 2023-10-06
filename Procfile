@@ -1,0 +1,1 @@
+web: java $JAVA_OPTS -war target/test.war --server.port=$PORT $JAR_OPTS
